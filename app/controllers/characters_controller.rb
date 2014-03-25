@@ -1,6 +1,7 @@
 class CharactersController < ApplicationController
 
   def index
+    @choices = [Character.first, Character.last]
     @characters = Character.all
   end
 
