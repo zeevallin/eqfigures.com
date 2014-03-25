@@ -43,8 +43,6 @@ GEM
       erubis (>= 2.6.6)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
-    bootstrap-sass (3.1.1.0)
-      sass (~> 3.2)
     builder (3.2.2)
     celluloid (0.15.2)
       timers (~> 1.1.0)
@@ -241,7 +239,6 @@ PLATFORMS
 DEPENDENCIES
   better_errors
   binding_of_caller
-  bootstrap-sass
   coffee-rails (~> 4.0.0)
   database_cleaner (= 1.0.1)
   email_spec
