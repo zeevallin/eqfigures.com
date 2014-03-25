@@ -1,0 +1,17 @@
+defaults: &defaults
+  adapter:  postgresql
+  host:     localhost
+  encoding: unicode
+  username: pony
+  password:
+  template: template0
+  pool:     5
+
+development:
+  database: pony_dev
+
+test:
+  database: pony_test
+
+production:
+  database: pony_prod

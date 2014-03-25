@@ -1,0 +1,15 @@
+defaults: &defaults
+  TWITTER_KEY: Your_Provider_Key
+  TWITTER_SECRET: Your_Provider_Secret
+
+test:
+  <<: *defaults
+
+staging:
+  <<: *defaults
+
+development:
+  <<: *defaults
+
+production:
+  <<: *defaults
