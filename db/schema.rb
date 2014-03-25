@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20140325203503) do
 
   create_table "users", force: true do |t|
     t.string   "name"
-    t.string   "email"
+    t.string   "handle"
     t.string   "provider"
     t.string   "uid"
     t.boolean  "admin",      default: false
