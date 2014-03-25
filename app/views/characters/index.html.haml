@@ -1,2 +1,11 @@
-%h1 Characters index
-%h2 List all the characters here
+- if @characters.empty?
+  %p= "no characters"
+- else
+  %article
+    - @characters.each_with_index do |character, idx|
+      %h2
+        %strong= "##{idx}"
+        = character.name
+      = link_to "remove", character, method: :delete, data: { confirm: "Are you sure?" }
+
+= link_to "introduce character", new_character_path

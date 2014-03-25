@@ -1,2 +1,6 @@
-%h1 Characters form
-%h2 Edit or create a new character here
+= simple_form_for @character do |f|
+  = f.input :name, label: "Character name"
+  = f.input :slug, label: "Short url slug"
+  = f.submit :save
+
+= link_to "all characters", characters_path
