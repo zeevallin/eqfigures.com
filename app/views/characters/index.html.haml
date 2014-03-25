@@ -1,4 +1,4 @@
-- if @choices.many?
+- if @choices.compact.many?
   - @choices.each_with_index do |character, idx|
     = link_to character.name
     - if idx.zero?
