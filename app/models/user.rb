@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
 
+  has_many :choices
+
   def self.create_with_omniauth(auth)
     new.tap do |user|
       user.uid      = auth.uid

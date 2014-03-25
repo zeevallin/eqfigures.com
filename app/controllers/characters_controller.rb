@@ -1,7 +1,7 @@
 class CharactersController < ApplicationController
 
   def index
-    @choices = [Character.first, Character.last]
+    @choice = Choice.determine *(available_choices.sample + [current_user])
     @characters = Character.all
   end
 
