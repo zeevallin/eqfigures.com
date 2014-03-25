@@ -2,7 +2,25 @@ class CharactersController < ApplicationController
 
   def index
     @choice = Choice.suggest *available_choices.sample, current_user if available_choices.any?
+    @choices = Choice.all
     @characters = Character.all
+
+    ratings = @characters.inject({}) {|h,c|h[c.id]=c.rating;h}
+
+    @choices.each do |choice|
+      a, b = choice.a, choice.b
+
+      achar = Elo::Player.new(rating: ratings[a])
+      bchar = Elo::Player.new(rating: ratings[b])
+
+      match = achar.versus bchar
+      match.winner = choice.x == a ? achar : bchar
+
+      ratings[a] = achar.rating
+      ratings[b] = bchar.rating
+    end
+    @characters.map { |c| c.rating = ratings[c.id]; c }
+    @characters = @characters.sort { |a,b| b.rating <=> a.rating }
   end
 
   def new
