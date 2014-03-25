@@ -13,6 +13,8 @@
       %h2
         %strong= "##{idx}"
         = character.name
-      = link_to "remove", character, method: :delete, data: { confirm: "Are you sure?" }
+      - if policy(character).create?
+        = link_to "remove", character, method: :delete, data: { confirm: "Are you sure?" }
 
-= link_to "introduce character", new_character_path
+- if policy(Character.new).create?
+  = link_to "introduce character", new_character_path
