@@ -8,10 +8,13 @@ defaults: &defaults
   pool:     5
 
 development:
+  <<: *defaults
   database: pony_dev
 
 test:
+  <<: *defaults
   database: pony_test
 
 production:
+  <<: *defaults
   database: pony_prod
