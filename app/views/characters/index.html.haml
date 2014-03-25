@@ -1,7 +1,7 @@
 %article.description
   %hgroup
     %h1= "Pony Scoreboard"
-    %h2= "Sophisticated measurements of best pony."
+    %h2= "Sophisticated & accurate best pony ratings"
 
   %p
     Since the dawn of time, people have argued "x is best pony".
@@ -42,3 +42,7 @@
 
 - if policy(Character.new).create?
   = link_to "introduce character", new_character_path
+
+%hr
+Made by
+= link_to "@zeeraw", "http://twitter.com/zeeraw"
