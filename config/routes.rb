@@ -8,7 +8,7 @@ Pony::Application.routes.draw do
     get :end, action: :destroy, on: :collection, path: '/logout'
   end
 
+  resources :choices, only: [:create]
   resources :characters, path_names: { :new => :introduce },path: '/'
-  resources :choice, only: [:create], path: '/'
 
 end

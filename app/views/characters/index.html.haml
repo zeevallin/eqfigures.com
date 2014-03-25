@@ -1,6 +1,6 @@
-- if @choice
+- if @choice && policy(@choice).create?
   - @choice.characters.each_with_index do |character, idx|
-    = link_to character.name
+    = link_to character.name, choices_path( @choice.winner_params( idx.zero? ? :a : :b ) ), method: :post
     - if idx.zero?
       = "or"
 
