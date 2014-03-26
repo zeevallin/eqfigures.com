@@ -61,7 +61,7 @@ body.guest header a, body.user header a {
   transform-origin: right;
 }
 
-body.guest article.description > a {
+aside.call-to-action a {
   @include button-subtle($twitter);
   @extend .button-jumbo;
   @extend .transition;
