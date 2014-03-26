@@ -1,6 +1,7 @@
 = simple_form_for @character do |f|
   = f.input :name, label: "Character name"
   = f.input :slug, label: "Short url slug"
+  = f.input :portrait, label: "Portrait URL"
   = f.submit :save
 
 = link_to "all characters", characters_path
