@@ -15,9 +15,10 @@ class Choice < ActiveRecord::Base
   end
 
   def winner_params(winner)
-    attributes = case winner.to_sym
+    attributes = case winner.try(:to_sym)
     when :a then Hash[ a: a, b: b, x: a ]
     when :b then Hash[ a: a, b: b, x: b ]
+    when nil then Hash[ a: a, b: b, x: nil ]
     end
     Hash[ character: attributes ]
   end
