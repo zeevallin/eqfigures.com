@@ -9,6 +9,7 @@ class SessionsController < ApplicationController
 
     user = User.where(provider: auth['provider'], uid: auth['uid'].to_s).first
     user ||= User.create_with_omniauth(auth)
+    user.apply_omniauth_info(auth)
     user.save
 
     reset_session

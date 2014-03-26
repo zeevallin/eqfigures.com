@@ -6,10 +6,13 @@ class User < ActiveRecord::Base
     new.tap do |user|
       user.uid      = auth.uid
       user.provider = auth.provider
-      user.name     = auth.info.name
-      user.handle   = auth.info.nickname
-      user.picture  = auth.info.image.try(:sub,"http","https")
     end
+  end
+
+  def apply_omniauth_info(auth)
+    self.name     = auth.info.name
+    self.handle   = auth.info.nickname
+    self.picture  = auth.info.image.try(:sub,"http","https")
   end
 
   def picture
