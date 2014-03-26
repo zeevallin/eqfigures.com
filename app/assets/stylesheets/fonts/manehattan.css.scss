@@ -16,7 +16,13 @@
   font-weight: normal;
   font-variant: normal;
   text-transform: none;
-  line-height: 1;
+  //line-height: 1;
+
+  /* Match font size of Lato =========== */
+  font-size: 119%;
+  display: inline-block;
+  line-height: 1em;
+  vertical-align: middle;
 
   vertical-align: -5%;
 
