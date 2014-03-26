@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+  before_filter :redirect_to_ssl
 
   helper_method :current_user
   hide_action :current_user
@@ -34,6 +35,12 @@ private
   def user_not_authorized
     flash[:alert] = "Access denied."
     redirect_to (request.referrer || root_path)
+  end
+
+  def redirect_to_ssl
+    if Rails.env.production?
+      redirect_to :protocol => "https://" unless (request.ssl?)
+    end
   end
 
 end
