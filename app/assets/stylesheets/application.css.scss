@@ -6,11 +6,6 @@
 @import "fonts/celestia";
 
 @import url(https://fonts.googleapis.com/css?family=Gorditas|Lato:400,300);
-@import url(http://weloveiconfonts.com/api/?family=zocial);
-
-[class*="zocial-"]:before {
-  font-family: 'zocial', sans-serif;
-}
 
 // Mixins
 .transition {
