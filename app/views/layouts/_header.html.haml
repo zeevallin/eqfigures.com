@@ -1,0 +1,6 @@
+- if current_user
+  = image_tag(current_user.picture, alt: "A picture of #{current_user.name}")
+  %span= "@#{current_user.handle}"
+  = link_to "logout", end_session_path, rel: "nofollow", title: "Logout from the site"
+- else
+  = link_to "Login with Twitter", new_session_path, rel: "nofollow", title: "Connect with twitter account"
