@@ -24,12 +24,10 @@
     - if idx.zero?
       = "or"
 
-  %hr
-
 - if @characters.empty?
   %p= "no characters"
 - else
-  %article
+  %article.board
     - @characters.each_with_index do |character, idx|
       %h2
         %strong= "##{idx + 1}"
@@ -42,7 +40,3 @@
 
 - if policy(Character.new).create?
   = link_to "introduce character", new_character_path
-
-%hr
-Made by
-= link_to "@zeeraw", "http://twitter.com/zeeraw"

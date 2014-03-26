@@ -11,13 +11,19 @@
 
     = csrf_meta_tags
 
-  %body
+  - if current_user
+    -bodyclass = 'user'
+  - elsif !current_user
+    -bodyclass = 'guest'
+  %body{:class => bodyclass}
     %header{ role: "header" }
       - if current_user
-        = "logged in as @#{current_user.handle}"
+        = image_tag( "http://avatars.io/twitter/#{current_user.handle}" )
+        %span @#{current_user.handle}
         = link_to "logout", end_session_path
       - else
         = link_to "login with twitter", new_session_path
-      %hr
     %main{ role: "main" }= yield
     %footer{ role: "footer" }
+      Made by
+      = link_to "@zeeraw", "http://twitter.com/zeeraw"

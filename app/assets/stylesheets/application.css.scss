@@ -1,0 +1,87 @@
+// Includes
+@import "includes/_reset.scss";
+@import "includes/_buttons.scss";
+
+// Fonts
+@import url(http://fonts.googleapis.com/css?family=Gorditas|Roboto:400,300);
+
+// Mixins
+.transition {
+  transition: all .5s ease-in-out;
+  -webkit-transition: all .5s ease-in-out;
+}
+
+.button {
+  text-decoration: none;
+}
+
+$twitter: #55acee;
+
+// Styles
+body {
+  position: relative;
+  padding: 20px;
+  min-height: 100%;
+  color: #FFF;
+  font-family: "Roboto","Gorditas", "Helvetica Neue",Helvetica,"Liberation Sans",Arial,sans-serif;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  background: url(http://fc09.deviantart.net/fs70/i/2012/162/5/1/equestria_at_night_by_darcowalways-d4ct67w.png) #000;
+  background-size: cover;
+}
+
+a {
+  color: inherit;
+}
+
+body.user header {
+  float: right;
+  background: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  line-height: 25px;
+  img {
+    float: left;
+  }
+  span {
+    display: inline-block;
+    padding: 0 10px;
+  }
+  a {
+    display: block;
+    background: white;
+    color: black;
+    text-decoration: none;
+    line-height: 25px;
+  }
+  img {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+body.guest header a, body.guest article.description > a {
+  @include button-subtle($twitter);
+  @extend .button-large;
+}
+
+body.user article.description {
+  p, h2 {
+    display: none;
+  }
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: #FFF;
+  padding: 20px;
+  font-style: normal;
+  text-align: center;
+  a {
+    color: white;
+  }
+}
