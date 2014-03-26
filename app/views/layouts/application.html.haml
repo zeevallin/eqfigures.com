@@ -18,7 +18,7 @@
         %span= "@#{current_user.handle}"
         = link_to "logout", end_session_path
       - else
-        = link_to "Login with Twitter", new_session_path
+        = link_to icon_prefix(:bird, "Login with Twitter"), new_session_path
 
     %main{ role: "main" }= yield
     %footer{ role: "footer" }
