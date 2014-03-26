@@ -1,5 +1,7 @@
 class Character < ActiveRecord::Base
 
+  mount_uploader :portrait, PortraitUploader
+
   validates :name, :slug, presence: true, uniqueness: true
 
   attr_accessor :rating

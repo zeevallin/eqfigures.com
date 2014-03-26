@@ -35,7 +35,7 @@ class CharactersController < ApplicationController
   end
 
   def create
-    @character = Character.new params.require(:character).permit(:name, :slug)
+    @character = Character.new params.require(:character).permit(:name, :slug, :portrait)
     authorize @character, :create?
     if @character.save
       redirect_to character_path(@character)
@@ -48,7 +48,7 @@ class CharactersController < ApplicationController
     @character = Character.find_by_slug params.require :id
     authorize @character, :update?
 
-    if @character.update_attributes params.require(:character).permit(:name, :slug)
+    if @character.update_attributes params.require(:character).permit(:name, :slug, :portrait)
       redirect_to character_path(@character)
     else
       render :form
