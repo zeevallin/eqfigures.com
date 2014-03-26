@@ -32,7 +32,7 @@
   %article
     - @characters.each_with_index do |character, idx|
       %h2
-        %strong= "##{idx}"
+        %strong= "##{idx + 1}"
         = character.name
         %i= "[#{character.rating}]"
       - if policy(character).destroy?
