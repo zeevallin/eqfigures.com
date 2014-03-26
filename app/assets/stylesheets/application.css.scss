@@ -3,19 +3,42 @@
 @import "includes/_buttons.scss";
 
 // Fonts
-@import url(http://fonts.googleapis.com/css?family=Gorditas|Roboto:400,300);
+@import url(celestia/font.css);
+@import url(http://fonts.googleapis.com/css?family=Gorditas|Lato:400,300);
+@import url(http://weloveiconfonts.com/api/?family=zocial);
+[class*="zocial-"]:before {
+  font-family: 'zocial', sans-serif;
+}
 
 // Mixins
 .transition {
-  transition: all .5s ease-in-out;
-  -webkit-transition: all .5s ease-in-out;
+  //transition: all .15s ease-in-out;
+  //-webkit-transition: all .15s ease-in-out;
+  -webkit-transition: all 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: all 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
+
+a {
+  color: inherit;
+}
+
+$fonts: "Helvetica Neue",Helvetica,"Liberation Sans",Arial,sans-serif;
+
+$twitter: #55acee;
+$grass: #8CC152;
 
 .button {
   text-decoration: none;
+  border-radius: 6px;
+  &:hover {
+    padding: 6px 24px;
+  }
+  &:active {
+  }
+  &:focus {
+    border-color: $grass;
+  }
 }
-
-$twitter: #55acee;
 
 // Styles
 body {
@@ -23,45 +46,94 @@ body {
   padding: 20px;
   min-height: 100%;
   color: #FFF;
-  font-family: "Roboto","Gorditas", "Helvetica Neue",Helvetica,"Liberation Sans",Arial,sans-serif;
-  font-weight: 300;
+  font-family: "Lato", $fonts;
+  font-weight: normal;
+  font-size: 18px;
   -webkit-font-smoothing: antialiased;
-  background: url(http://fc09.deviantart.net/fs70/i/2012/162/5/1/equestria_at_night_by_darcowalways-d4ct67w.png) #000;
+  background: url(http://fc09.deviantart.net/fs70/i/2012/151/b/0/summer_campfire_by_boneswolbach-d51tzf2.png) #000;
   background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
-a {
-  color: inherit;
+body.guest header a, body.user header a {
+  @include button-border(white);
+  @extend .button-large;
+  -webkit-transform-origin: right;
+  transform-origin: right;
 }
 
+body.guest article.description > a {
+  @include button-subtle($twitter);
+  @extend .button-jumbo;
+  @extend .transition;
+  -webkit-transform-origin: center;
+  transform-origin: center;
+  margin: auto;
+  margin-top: 12px;
+  display: block;
+  width: 400px;
+  box-sizing: content-box;
+  &:hover {
+    padding: 0 30px;
+  }
+
+}
+
+// body.user header {
+//   float: right;
+//   background: rgba(0, 0, 0, 0.5);
+//   text-align: center;
+//   line-height: 25px;
+//   img {
+//     float: left;
+//   }
+//   span {
+//     display: inline-block;
+//     padding: 0 10px;
+//   }
+//   a {
+//     display: block;
+//     background: white;
+//     color: black;
+//     text-decoration: none;
+//     line-height: 25px;
+//   }
+//   img {
+//     width: 50px;
+//     height: 50px;
+//   }
+// }
 body.user header {
   float: right;
-  background: rgba(0, 0, 0, 0.5);
-  text-align: center;
-  line-height: 25px;
   img {
-    float: left;
+    height: 2em;
+    vertical-align: middle;
+    border-radius: 50%;
   }
   span {
-    display: inline-block;
     padding: 0 10px;
-  }
-  a {
-    display: block;
-    background: white;
-    color: black;
-    text-decoration: none;
-    line-height: 25px;
-  }
-  img {
-    width: 50px;
-    height: 50px;
   }
 }
 
-body.guest header a, body.guest article.description > a {
-  @include button-subtle($twitter);
-  @extend .button-large;
+body.guest header {
+  float: right;
+}
+
+article.description {
+  p {
+    background: rgba(0,0,0,.5);
+    margin: 0px;
+    padding: 20px;
+    line-height: 1.4em;
+  }
+  hgroup {
+    margin-top: 50px;
+      font-family: Gorditas, $fonts;
+      font-size: 120%;
+      text-align: center;
+      text-shadow: 0 0 5px rgba(0,0,0,.5);
+  }
 }
 
 body.user article.description {

@@ -16,7 +16,7 @@
     data from autists all over the world.
 
   - unless current_user
-    = link_to "Follow the bird to participate!", new_session_path
+    = link_to "Follow the bird to start voting!", new_session_path
 
 - if @choice && policy(@choice).create?
   - @choice.characters.each_with_index do |character, idx|

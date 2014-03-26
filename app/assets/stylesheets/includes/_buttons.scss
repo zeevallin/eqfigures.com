@@ -27,11 +27,12 @@
 
 @mixin button-border($color) {
   @extend .button;
-  border-radius: 0px;
   color: $color;
-  border: 1px solid $color;
+  border: 2px solid $color;
+  @extend .transition;
   &:hover {
-    background: $color;
+    // background: $color;
+    background: rgba(255,255,255,.25);
     color: white;
   }
 }
@@ -135,7 +136,7 @@
   background: $color;
   color: white;
   border: 1px solid darken($color, 20%);
-  transition: background-color .15s;
+  @extend .transition;
   box-shadow: 0 0 2px rgba(0,0,0,.5);
   &:hover {
     background-color: lighten($color, 8%);
