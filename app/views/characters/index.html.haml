@@ -18,7 +18,7 @@
 
   - unless current_user
     %aside.call-to-action
-      = link_to "Connect to Participate", new_session_path
+      = link_to "Login with Twitter to Participate", new_session_path
 
 - if @choice && policy(@choice).create?
   = render 'choice', choice: @choice
