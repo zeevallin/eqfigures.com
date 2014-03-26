@@ -19,6 +19,8 @@ gem 'pundit'
 gem 'simple_form'
 gem 'thin'
 gem 'elo'
+gem 'carrierwave'
+gem 'fog'
 
 group :production do
   gem 'rails_12factor'
