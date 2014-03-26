@@ -1,11 +1,13 @@
 // Includes
-@import "includes/_reset.scss";
-@import "includes/_buttons.scss";
+@import "includes/_reset";
+@import "includes/_buttons";
 
 // Fonts
-@import url(celestia/font.css);
+@import "fonts/celestia";
+
 @import url(http://fonts.googleapis.com/css?family=Gorditas|Lato:400,300);
 @import url(http://weloveiconfonts.com/api/?family=zocial);
+
 [class*="zocial-"]:before {
   font-family: 'zocial', sans-serif;
 }
