@@ -1,6 +1,6 @@
 class Choice < ActiveRecord::Base
 
-  belongs_to :user, dependent: :destroy
+  belongs_to :user
 
   def characters
     @characters ||= Character.find(a, b)

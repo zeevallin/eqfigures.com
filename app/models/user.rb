@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 
-  has_many :choices
+  has_many :choices, dependent: :destroy
 
   def self.create_with_omniauth(auth)
     new.tap do |user|
