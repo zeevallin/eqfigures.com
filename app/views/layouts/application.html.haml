@@ -14,7 +14,7 @@
   %body{ :class => current_user ? 'user' : 'guest' }
     %header{ role: "header" }
       - if current_user
-        = image_tag( "https://avatars.io/twitter/#{current_user.handle}" )
+        = image_tag(current_user.picture)
         %span= "@#{current_user.handle}"
         = link_to "logout", end_session_path
       - else
