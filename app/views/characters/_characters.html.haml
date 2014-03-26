@@ -1,0 +1,17 @@
+%section.characters
+  - characters.each_with_index do |character, idx|
+    %article.character
+      %header
+        %h1= character.name
+        %span.rank= idx + 1
+        %span.rating= character.rating
+
+      %nav.actions
+        - if policy(character).destroy?
+          = link_to "remove", character, method: :delete, data: { confirm: "Are you sure?" }
+        - if policy(character).update?
+          = link_to "change", character
+
+  - if policy(Character.new).create?
+    %nav.administrivia
+      = link_to "introduce character", new_character_path

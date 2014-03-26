@@ -1,48 +1,27 @@
-%article.description
-  %hgroup
-    %h1= "Pony Scoreboard"
-    %h2= "Sophisticated & accurate best pony ratings"
+%section.introduction
+  %article.description
+    %hgroup
+      %h1= "Pony Scoreboard"
+      %h2= "Sophisticated & accurate best pony ratings"
 
-  %p
-    Since the dawn of time, people have argued "x is best pony".
-    It has during the years lead to unnecessary drama, driven by
-    uneducated opinions. Friendships has been ruined and copious
-    amounts of spaghetti has been dropped in the process.
+    %p
+      Since the dawn of time, people have argued "x is best pony".
+      It has during the years lead to unnecessary drama, driven by
+      uneducated opinions. Friendships has been ruined and copious
+      amounts of spaghetti has been dropped in the process.
 
-  %p
-    We have the long sought solution to this problem. By using
-    = link_to "Elo's rating system", "http://en.wikipedia.org/wiki/Elo_rating_system"
-    , we can more accurately determine who is really best pony by gathering
-    data from autists all over the world.
+    %p
+      We have the long sought solution to this problem. By using
+      = link_to "Elo's rating system", "http://en.wikipedia.org/wiki/Elo_rating_system"
+      , we can more accurately determine who is really best pony by gathering
+      data from autists all over the world.
 
   - unless current_user
-    = link_to "Follow the bird to participate!", new_session_path
+    %aside.call-to-action
+      = link_to "Connect to Participate", new_session_path
 
 - if @choice && policy(@choice).create?
-  - @choice.characters.each_with_index do |character, idx|
-    = link_to character.name, choices_path( @choice.winner_params( idx.zero? ? :a : :b ) ), method: :post
-    - if idx.zero?
-      = "or"
+  = render 'choice', choice: @choice
 
-  %hr
-
-- if @characters.empty?
-  %p= "no characters"
-- else
-  %article
-    - @characters.each_with_index do |character, idx|
-      %h2
-        %strong= "##{idx + 1}"
-        = character.name
-        %i= "[#{character.rating}]"
-      - if policy(character).destroy?
-        = link_to "remove", character, method: :delete, data: { confirm: "Are you sure?" }
-      - if policy(character).update?
-        = link_to "change", character
-
-- if policy(Character.new).create?
-  = link_to "introduce character", new_character_path
-
-%hr
-Made by
-= link_to "@zeeraw", "http://twitter.com/zeeraw"
+- unless @characters.empty?
+  = render 'characters', characters: @characters

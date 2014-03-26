@@ -1,0 +1,14 @@
+%section.choices
+  - choice.characters.each_with_index do |character, idx|
+    - choice_key = idx.zero? ? :a : :b
+    %article.choice{ :class => choice_key }
+      = link_to choices_path( choice.winner_params(choice_key) ), method: :post do
+        %figure
+          = image_tag character.portrait
+          %figcaption= character.name
+
+    - if idx.zero?
+      %article.choice.skip
+        = link_to choices_path( choice.winner_params(nil) ), method: :post do
+          %figure
+            %figcaption= "skip"
