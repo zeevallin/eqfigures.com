@@ -21,6 +21,7 @@ gem 'thin'
 gem 'elo'
 gem 'carrierwave'
 gem 'fog'
+gem 'mini_magick'
 
 group :production do
   gem 'rails_12factor'
