@@ -1,6 +1,11 @@
 defaults: &defaults
   TWITTER_KEY: Your_Provider_Key
   TWITTER_SECRET: Your_Provider_Secret
+  STORAGE_TYPE: file
+  FOG_DIR: pony
+  FOG_HOST: "http://c000000.cdn.rackspacecloud.com"
+  RACKSPACE_USERNAME: abc
+  RACKSPACE_API_KEY: abc
 
 test:
   <<: *defaults
