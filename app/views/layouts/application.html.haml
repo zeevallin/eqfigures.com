@@ -13,12 +13,13 @@
 
   %body{ :class => current_user ? 'user' : 'guest' }
     %header{ role: "header" }
+      %span.brand= link_to "EqFigures", root_path
       - if current_user
         = image_tag(current_user.picture)
         %span= "@#{current_user.handle}"
-        = link_to "logout", end_session_path
+        = link_to "logout", end_session_path, :class => 'button'
       - else
-        = link_to icon_prefix(:bird, "Login with Twitter"), new_session_path
+        = link_to icon_prefix(:bird, "Login with Twitter"), new_session_path, :class => 'button'
 
     %main{ role: "main" }= yield
     %footer{ role: "footer" }

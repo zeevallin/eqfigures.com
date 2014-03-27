@@ -54,13 +54,6 @@ body {
   background-attachment: fixed;
 }
 
-body.guest header a, body.user header a {
-  @include button-border(white);
-  @extend .button-large;
-  -webkit-transform-origin: right;
-  transform-origin: right;
-}
-
 aside.call-to-action a {
   @include button-subtle($twitter);
   @extend .button-jumbo;
@@ -102,20 +95,36 @@ aside.call-to-action a {
 //     height: 50px;
 //   }
 // }
+
+body > header {
+  text-align: right;
+}
+
+header > a.button {
+  @include button-border(white);
+  @extend .button-large;
+  -webkit-transform-origin: right;
+  transform-origin: right;
+}
+
+header > .brand {
+  float: left;
+}
+
 body.user header {
-  float: right;
+
   img {
     height: 2em;
     vertical-align: middle;
     border-radius: 50%;
   }
+
   span {
     padding: 0 10px;
   }
 }
 
 body.guest header {
-  float: right;
 }
 
 article.description {
