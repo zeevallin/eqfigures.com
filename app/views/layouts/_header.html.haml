@@ -1,6 +1,7 @@
+%span.brand= link_to "EqFigures", root_path, rel: "", title: "Equestrian Figure"
 - if current_user
-  = image_tag(current_user.picture, alt: "A picture of #{current_user.name}")
+  = image_tag(current_user.picture)
   %span= "@#{current_user.handle}"
-  = link_to "logout", end_session_path, rel: "nofollow", title: "Logout from the site"
+  = link_to "logout", end_session_path, :class => 'button'
 - else
-  = link_to "Login with Twitter", new_session_path, rel: "nofollow", title: "Connect with twitter account"
+  = link_to icon_prefix(:bird, "Login with Twitter"), new_session_path, :class => 'button'

@@ -12,19 +12,6 @@
     = csrf_meta_tags
 
   %body{ :class => current_user ? 'user' : 'guest' }
-    %header{ role: "header" }
-      %span.brand= link_to "EqFigures", root_path, rel: "", title: "Equestrian Figure"
-      - if current_user
-        = image_tag(current_user.picture)
-        %span= "@#{current_user.handle}"
-        = link_to "logout", end_session_path, :class => 'button'
-      - else
-        = link_to icon_prefix(:bird, "Login with Twitter"), new_session_path, :class => 'button'
-
+    %header{ role: "header" }= render 'layouts/header'
     %main{ role: "main" }= yield
-    %footer{ role: "footer" }
-      Made by
-      = link_to "@zeeraw", "http://twitter.com/zeeraw"
-      Designed by
-      = link_to "@lablayers", "http://twitter.com/lablayers"
-      = link_to "Background Credit", "http://boneswolbach.deviantart.com/art/Summer-Campfire-305409422"
+    %footer{ role: "footer" }= render 'layouts/footer'
