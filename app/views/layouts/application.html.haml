@@ -13,7 +13,7 @@
 
   %body{ :class => current_user ? 'user' : 'guest' }
     %header{ role: "header" }
-      %span.brand= link_to "EqFigures", root_path
+      %span.brand= link_to "EqFigures", root_path, rel: "", title: "Equestrian Figure"
       - if current_user
         = image_tag(current_user.picture)
         %span= "@#{current_user.handle}"
