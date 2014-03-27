@@ -9,6 +9,9 @@ class SessionsController < ApplicationController
 
     user = User.where(provider: auth['provider'], uid: auth['uid'].to_s).first
     user ||= User.create_with_omniauth(auth)
+
+    user.ip ||= request.remote_ip
+
     user.apply_omniauth_info(auth)
     user.save
 

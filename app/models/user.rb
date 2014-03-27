@@ -10,9 +10,11 @@ class User < ActiveRecord::Base
   end
 
   def apply_omniauth_info(auth)
-    self.name     = auth.info.name
-    self.handle   = auth.info.nickname
-    self.picture  = auth.info.image.try(:sub,"http","https")
+    self.name       = auth.info.name
+    self.handle     = auth.info.nickname
+    self.picture    = auth.info.image.try(:sub,"http","https")
+    self.locale     = auth.extra.raw_info.lang
+    self.time_zone  = auth.extra.raw_info.time_zone
   end
 
   def picture
