@@ -1,7 +1,9 @@
+- if @choice && policy(@choice).create?
+  = render 'choice', choice: @choice
+
 %section.introduction
   %article.description
     %hgroup
-      %h1= "Best Pony"
       %h2= "A herd-sourced leaderboard"
 
     %p
@@ -19,9 +21,6 @@
   - unless current_user
     %aside.call-to-action
       = link_to icon_prefix(:bird, "Login with Twitter to Participate"), new_session_path
-
-- if @choice && policy(@choice).create?
-  = render 'choice', choice: @choice
 
 - unless @characters.empty?
   = render 'characters', characters: @characters
