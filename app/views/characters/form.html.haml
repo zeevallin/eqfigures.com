@@ -8,6 +8,3 @@
 - if @character.portrait
   %style{:type => "text/css"}
     == body { background-image: url(#{@character.portrait.url})!important; }
-
-%nav.administrivia
-  = link_to "all characters", characters_path

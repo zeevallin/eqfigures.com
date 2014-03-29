@@ -1,6 +1,9 @@
 %hgroup
   %h1= "Best Pony"
-%span.brand= link_to "EqFigures", root_path, rel: "", title: "Equestrian Figures"
+%span.brand
+  = link_to "EqFigures", root_path, rel: "", title: "Equestrian Figures"
+  - if policy(Character.new).create?
+    = link_to "introduce character", new_character_path, :class => 'button'
 - if current_user
   = image_tag(current_user.picture)
   %span= "@#{current_user.handle}"
