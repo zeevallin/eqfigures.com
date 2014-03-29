@@ -195,7 +195,7 @@ article.character {
   height: 250px;
   margin: 0px;
   text-align: center;
-  text-shadow: 0 0 4px rgba(0,0,0,.5);
+  text-shadow: 0 0 4px rgba(0,0,0,1);
   span.rank {
     display: inline-block;
     width: 40px;
@@ -215,7 +215,11 @@ article.character {
 
 article.character {
   nav.actions {
-    display: inline;
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.5);
+    padding: 0px 2px;
+    border-radius: 5px;
+    text-shadow: none;
     a {
       @include button-border(black);
       &:hover {
