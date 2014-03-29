@@ -5,8 +5,9 @@
     = f.input :portrait, label: "Portrait URL", type: :file
     = f.submit :save
 
-  - if @character.portrait
-    %figure= image_tag @character.portrait.url
+- if @character.portrait
+  %style{:type => "text/css"}
+    == body { background-image: url(#{@character.portrait.url})!important; }
 
-  %nav.administrivia
-    = link_to "all characters", characters_path
+%nav.administrivia
+  = link_to "all characters", characters_path
