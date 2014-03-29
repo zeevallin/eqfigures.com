@@ -331,6 +331,9 @@ section.choices {
     width: 100px;
     height: 50px;
     opacity: .5;
+    &:hover {
+      opacity: .7;
+    }
     path {
       fill: white; 
     }
