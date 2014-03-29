@@ -59,8 +59,13 @@ body {
   padding-bottom: 80px;
 }
 
-h2, h3, .choice:not(.skip) figcaption {
+h1, h2, h3, .choice:not(.skip) figcaption {
   font-family: Gorditas, $fonts;
+  text-align: center;
+}
+
+h1 {
+  font-size: 50px;
 }
 
 header, section:not(.choices) {
@@ -172,10 +177,43 @@ article.description {
 }
 
 // Character Data
+// Results
+section.characters {
+  display: flex;
+  flex-wrap: wrap;
+
+}
 article.character {
-  text-align: left;
-  background: white;
-  color: black;
+  flex-grow: 1;
+  min-width: 25%;
+  background: rgba(0,0,0,.5);
+  background-size: cover!important;
+  background-position: center!important;
+  color: white;
+  display: inline-block;
+  width: 33%;
+  height: 250px;
+  margin: 0px;
+  text-align: center;
+  text-shadow: 0 0 4px rgba(0,0,0,.5);
+  span.rank {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 34px;
+    border-radius: 50%;
+    border: 3px solid white;
+    background: rgba(0,0,0,.5);
+    font-size: 18px;
+  }
+  h2 {
+    font-size: 40px;
+    line-height: 0.7em;
+  }
+}
+
+
+article.character {
   nav.actions {
     display: inline;
     a {
@@ -339,6 +377,7 @@ section.choices {
     }
   }
 }
+
 
 // Footer
 footer {

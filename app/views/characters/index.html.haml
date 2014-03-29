@@ -4,6 +4,10 @@
 %section.introduction#content
   %article.description
     %hgroup
+      - if current_user
+        %h1= "EqFigures"
+      - if !current_user
+        %br
       %h2= "A herd-sourced leaderboard"
 
     %p
