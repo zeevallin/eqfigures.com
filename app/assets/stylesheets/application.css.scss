@@ -238,6 +238,17 @@ section.choices {
       height: 100vh;
       width: 100%;
       position: relative;
+      figure {
+        height: 100vh;
+        width: 100%;
+        background-size: cover;
+        @extend .transition;
+        &:hover {
+          -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+          background-size: cover;
+        }
+      }
       figcaption {
         margin: auto;
         position: absolute;
@@ -254,12 +265,18 @@ section.choices {
         text-shadow: 0 0 20px rgba(0,0,0,.8);
         color: white;
         @extend .transition;
+        transform: translateZ(0px);
+        -webkit-transform: translateZ(0px);
       }
-      &:hover figcaption {
-        -webkit-transform: scale(1.2);
-        transform: scale(1.2);
+      // &:hover figcaption {
+      //   -webkit-transform: scale(1.2);
+      //   transform: scale(1.2);
+      //   background: rgba(0,0,0,.5);
+      // }
+       &:hover figcaption {
         background: rgba(0,0,0,.5);
-      }
+        // -webkit-filter: blur(10px);
+     }
     }
   }
   .choice.skip {
@@ -290,6 +307,8 @@ section.choices {
     -webkit-animation-iteration-count: infinite;
     -webkit-animation-name: coloranim;
     -webkit-animation-timing-function: ease;
+    transform: translateZ(0px);
+    -webkit-transform: translateZ(0px);
     @extend .transition;
     a {
       text-decoration: none;
@@ -303,8 +322,19 @@ section.choices {
       transform: scale(0.7);
     }
   }
-
-
+  svg {
+    position: absolute;
+    z-index: 150;
+    bottom: 20px;
+    left: 50%;
+    margin-left: -50px;
+    width: 100px;
+    height: 50px;
+    opacity: .5;
+    path {
+      fill: white; 
+    }
+  }
 }
 
 // Footer
