@@ -8,6 +8,13 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
   hide_action :current_user
   def current_user
+                        _,-%/%|
+                    _,-'    \//%\
+                _,-'        \%/|%
+              / / )    __,--  /%\
+              \__/_,-'%(%  ;  %)%
+                      %\%,   %\
+                        '--%'      
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
