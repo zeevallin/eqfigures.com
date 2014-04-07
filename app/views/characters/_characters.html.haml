@@ -1,7 +1,7 @@
 %h1= "Rankings"
-%section.characters
+%section.characters#rankings
   - characters.each_with_index do |character, idx|
-    %article.character{ style: "background-image:url(#{character.portrait.url});"}
+    %article.character{ style: "background-image:url(#{character.portrait.url});" }
       %header
         %span.rank= idx + 1
         %h2= character.name
