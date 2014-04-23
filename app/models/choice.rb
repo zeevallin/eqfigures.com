@@ -23,4 +23,8 @@ class Choice < ActiveRecord::Base
     Hash[ character: attributes ]
   end
 
+  def sides
+    [a, b]
+  end
+
 end

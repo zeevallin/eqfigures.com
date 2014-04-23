@@ -7,7 +7,23 @@ class ChoicesController < ApplicationController
     authorize @choice, :create?
 
     @choice.save
-    redirect_to characters_path
+
+    respond_to do |format|
+
+      format.html { redirect_to characters_path }
+      format.js do
+
+        if available_choices.any?
+          @choice = Choice.suggest *available_choices.sample, current_user
+          render partial: 'characters/choice', locals: { choice: @choice }
+        else
+          render nothing: true
+        end
+
+      end
+
+    end
+
   end
 
 end
