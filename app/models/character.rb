@@ -4,7 +4,7 @@ class Character < ActiveRecord::Base
 
   validates :name, :slug, presence: true, uniqueness: true
 
-  attr_accessor :rating
+  attr_accessor :rating, :times_matched
 
   def to_param
     slug || id
@@ -12,6 +12,10 @@ class Character < ActiveRecord::Base
 
   def rating
     @rating ||= 1000
+  end
+
+  def times_matched
+    @times_matched || 0
   end
 
 end
