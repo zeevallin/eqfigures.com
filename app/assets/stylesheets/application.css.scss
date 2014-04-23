@@ -6,7 +6,7 @@
 @import "fonts/celestia";
 @import "fonts/manehattan";
 
-@import url(https://fonts.googleapis.com/css?family=Gorditas|Lato:400,300);
+@import url(https://fonts.googleapis.com/css?family=Gorditas|Lato:700,400,300);
 
 // Mixins
 .transition {
@@ -43,6 +43,13 @@ $grass: #8CC152;
 }
 
 // Styles
+::selection {
+  background: $grass;
+}
+::-moz-selection {
+  background: $grass;
+}
+
 body {
   position: relative;
   // padding: 20px;
@@ -50,33 +57,40 @@ body {
   color: #FFF;
   font-family: "Lato", $fonts;
   font-weight: normal;
-  font-size: 18px;
+  font-size: 20px;
   -webkit-font-smoothing: antialiased;
-  background: asset-url("campfire-large.png") #000;
+  background: asset-url("equestria-at-night.png") #000;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   padding-bottom: 80px;
+  padding-top: 80px;
 }
 
 h1, h2, h3, .choice:not(.skip) figcaption {
   font-family: Gorditas, $fonts;
   text-align: center;
+  text-shadow:0 0 10px rgba(0,0,0,0.75);
 }
 
 h1 {
   font-size: 50px;
 }
 
-header, section:not(.choices) {
+header, section.characters, section.introduction {
   padding: 20px;
 }
 
-header[role="header"] a, header[role="header"] .button, nav a {
+section.introduction {
+  padding-top: 0px;
+}
+
+header[role="header"] a, header[role="header"] .button, nav a, footer a:last-child {
   @include button-border(white);
   @extend .button-large;
   -webkit-transform-origin: right;
   transform-origin: right;
+  font-size: inherit;
 }
 
 aside.call-to-action a {
@@ -129,6 +143,7 @@ button, input[type="submit"] {
 
 // Header
 header[role="header"] {
+  background: linear-gradient(rgba(0,0,0,0.5),transparent);
   text-align: right;
   position: absolute;
   top: 0px;
@@ -151,6 +166,7 @@ header[role="header"] {
     position: absolute;
     margin: auto;
     width: 100%;
+    top: 50px;
     left: 0;
     text-align: center;
     z-index: 0;
@@ -169,10 +185,9 @@ article.description {
     line-height: 1.4em;
   }
   hgroup {
-    margin-top: 50px;
+    // margin-top: 50px;
     font-size: 120%;
     text-align: center;
-    text-shadow: 0 0 5px rgba(0,0,0,.5);
   }
 }
 
@@ -181,7 +196,7 @@ article.description {
 section.characters {
   display: flex;
   flex-wrap: wrap;
-
+  margin-bottom: 20px;
 }
 article.character {
   flex-grow: 1;
@@ -191,25 +206,72 @@ article.character {
   background-position: center!important;
   color: white;
   display: inline-block;
+  position: relative;
   width: 33%;
   height: 250px;
   margin: 0px;
   text-align: center;
   text-shadow: 0 0 4px rgba(0,0,0,1);
   span.rank {
+    position: relative;
     display: inline-block;
-    width: 40px;
-    height: 40px;
-    line-height: 34px;
+    width: 50px;
+    height: 50px;
+    line-height: 44px;
     border-radius: 50%;
     border: 3px solid white;
     background: rgba(0,0,0,.5);
-    font-size: 18px;
+    font-size: 24px;
+    font-weight: bold;
   }
   h2 {
-    font-size: 40px;
-    line-height: 0.7em;
+    position: relative;
+    font-size: 50px;
+    line-height: 1em;
+    margin: 15px 0;
+    text-shadow: 0 0 8px rgba(0,0,0,1);
   }
+  .rating {
+    position: relative;
+    font-size: 24px;
+    &:after {
+      content: ' Points'
+    }
+  }
+  // Gold
+  &:first-child {
+    span.rank {
+      background: rgba(150,150,0,.75);
+      text-shadow: none;
+      color: white;
+    }
+  }
+  // Silver
+  &:nth-child(2) {
+    span.rank {
+      background: rgba(150,150,150,.75);
+      text-shadow: none;
+      color: white;
+    }
+  }
+  // Bronze
+  &:nth-child(3) {
+    span.rank {
+      background: rgba(150,0,50,.75);
+      text-shadow: none;
+      color: white;
+    }
+  }
+}
+article.character:before {
+  position: absolute;
+  display: block;
+  background: radial-gradient(rgba(0,0,0,.0),rgba(0,0,0,.15));
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  content: ' ';
 }
 
 
@@ -257,6 +319,7 @@ form {
 
 // Choices
 section.choices {
+  margin-top: -80px;
   background-color: #333;
   background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.25) 100%);
   box-sizing: border-box;
@@ -393,9 +456,14 @@ footer {
   border: none;
   color: #FFF;
   padding: 20px;
+  vertical-align: middle;
   font-style: normal;
-  text-align: center;
+  text-align: left;
+  line-height: 46px;
   a {
     color: white;
+    &:last-child {
+      float: right;
+    }
   }
 }
