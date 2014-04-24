@@ -28,6 +28,6 @@
     = csrf_meta_tags
 
   %body{ :class => current_user ? 'user' : 'guest' }
-    %header{ role: "header" }= render 'layouts/header'
+    %header#top{ role: "header" }= render 'layouts/header'
     %main{ role: "main" }= yield
     %footer{ role: "footer" }= render 'layouts/footer'
