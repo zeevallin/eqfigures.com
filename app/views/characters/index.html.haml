@@ -28,9 +28,11 @@
       , we can accurately determine who is really best pony by
       gathering data from autists all over the world.
 
-  - unless current_user
-    %aside.call-to-action
-      = link_to icon_prefix(:bird, "Login with Twitter to Participate"), new_session_path
+  - if current_user
+    - unless @choice
+      %aside.call-to-action= link_to icon_suffix(:shuffle, "Reset & start again"), choices_path, method: :delete, data: { confirm: "Do you really want to reset all of your choices and start from the beginning?" }
+  - else
+    %aside.call-to-action= link_to icon_prefix(:bird, "Login with Twitter to participate"), new_session_path
 
 - unless @characters.empty?
   = render 'characters', characters: @characters

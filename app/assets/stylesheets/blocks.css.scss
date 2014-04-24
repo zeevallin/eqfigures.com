@@ -53,6 +53,11 @@ aside.call-to-action a {
 
   width: 400px;
 
+  span.after-text {
+    position: relative;
+    top: 4px;
+  }
+
   @media(max-width: $xs-max) {
     width: auto;
     display: block;

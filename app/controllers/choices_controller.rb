@@ -26,4 +26,10 @@ class ChoicesController < ApplicationController
 
   end
 
+  def destroy
+    authorize Choice, :destroy?
+    current_user.choices.destroy_all
+    redirect_to root_path
+  end
+
 end

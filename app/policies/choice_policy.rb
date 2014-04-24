@@ -10,4 +10,8 @@ class ChoicePolicy < ApplicationPolicy
     return !!user
   end
 
+  def destroy?
+    return !!user
+  end
+
 end
