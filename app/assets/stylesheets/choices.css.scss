@@ -103,7 +103,7 @@ section.choices {
         @extend .transition;
 
         @media(max-width: $xs-max) {
-          bottom: 80px;
+          bottom: 50px;
         }
       }
     }
