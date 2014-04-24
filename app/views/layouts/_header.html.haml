@@ -1,14 +1,18 @@
-%hgroup#top
-  %h1= "Best Pony"
-%span.brand
-  = link_to "EqFigures", root_path, rel: "", title: "Equestrian Figures"
-  = link_to "About", "#content"
-  = link_to "Rankings", "#rankings"
+/ %hgroup#top
+/   %h1= "Best Pony"
+
+%nav.menu{ :class => policy(Character.new).create? ? 'admin' : 'normal' }
+  %span= link_to "EqFigures", root_path, rel: "", title: "Equestrian Figures"
+  %span= link_to "About", "#content"
+  %span= link_to "Rankings", "#rankings"
   - if policy(Character.new).create?
-    = link_to "introduce character", new_character_path, :class => 'button'
-- if current_user
-  = image_tag(current_user.picture)
-  %span= "@#{current_user.handle}"
-  = link_to "Logout", end_session_path, :class => 'button'
-- else
-  = link_to icon_prefix(:bird, "Login with Twitter"), new_session_path, :class => 'button'
+    %span= link_to "introduce character", new_character_path, :class => 'button'
+
+%nav.session
+  - if current_user
+    %span
+      = image_tag(current_user.picture)
+      = "@#{current_user.handle}"
+      = link_to "Logout", end_session_path, :class => 'button'
+  - else
+    %span= link_to icon_prefix(:bird, "Login with Twitter"), new_session_path, :class => 'button'

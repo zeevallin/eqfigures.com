@@ -1,0 +1,44 @@
+// Header
+header[role="header"] {
+  background: linear-gradient(rgba(0,0,0,0.5),transparent);
+  text-align: right;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  z-index: 200;
+
+  @media(max-width: $xs-max) {
+    position: relative;
+  }
+
+  nav.menu {
+    float: left;
+    @media(max-width: $xs-max) {
+      float: none;
+      display: none;
+    }
+  }
+
+  nav.session {
+    float: right;
+    @media(max-width: $xs-max) {
+      float: none;
+      display: block;
+    }
+  }
+
+  span > a { z-index: 1; }
+  span, span > a {
+    @media(max-width: $xs-max) {
+      display: block;
+    }
+  }
+
+  img {
+    height: 2em;
+    vertical-align: middle;
+    border-radius: 50%;
+  }
+
+}

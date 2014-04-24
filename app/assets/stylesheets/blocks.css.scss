@@ -1,0 +1,64 @@
+section.introduction {
+
+  position: relative;
+  width: 100%;
+  margin: auto;
+
+  @media(min-width: $sm-min) {
+    width: $sm-min;
+  }
+
+  @media(min-width: $md-min) {
+    width: $md-min;
+  }
+
+  @media(min-width: $lg-min) {
+    width: $lg-min;
+  }
+
+}
+
+article.description {
+
+  hgroup {
+    font-size: 120%;
+    text-align: center;
+  }
+
+  p {
+    background: rgba(0,0,0,.5);
+    margin: 0px;
+    padding: 20px;
+    line-height: 1.4em;
+  }
+
+  p:last-child {
+    padding-bottom: 60px;
+  }
+
+}
+
+aside.call-to-action a {
+  @include button-subtle($twitter);
+  @extend .button-jumbo;
+  @extend .transition;
+
+  -webkit-transform-origin: center;
+  transform-origin: center;
+
+  margin: auto;
+  margin-top: 12px;
+  display: block;
+  box-sizing: content-box;
+
+  width: 400px;
+
+  @media(max-width: $xs-max) {
+    width: auto;
+    display: block;
+  }
+
+  @media(min-width: $sm-min) {
+    margin-top: -30px;
+  }
+}

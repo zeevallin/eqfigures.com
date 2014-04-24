@@ -1,0 +1,48 @@
+// Footer
+footer {
+
+  padding: 20px;
+
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  color: #FFF;
+
+  vertical-align: middle;
+  font-style: normal;
+  line-height: 46px;
+
+  @media(max-width: $sm-max) {
+    position: relative;
+  }
+
+  @media(min-width: $md-min) {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  a { color: white; }
+  a.back-to-top {
+    @include button-border(white);
+    @extend .button-large;
+    -webkit-transform-origin: right;
+    transform-origin: right;
+    font-size: inherit;
+    float: right;
+    @media(max-width: $xxs-max) {
+      float: none;
+      display: block;
+    }
+  }
+
+  section {
+    margin-right: 180px;
+    text-align: left;
+    @media(max-width: $xxs-max) {
+      margin-right: 0;
+      text-align: center;
+    }
+  }
+}
