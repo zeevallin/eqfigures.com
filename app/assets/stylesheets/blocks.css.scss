@@ -1,19 +1,23 @@
 section.introduction {
 
   position: relative;
-  width: 100%;
-  margin: auto;
+  width: auto;
+  margin: 20px auto;
+
+  @media(max-width: $xs-max) {
+    margin: 20px;
+  }
 
   @media(min-width: $sm-min) {
-    width: $sm-min;
+    width: $sm-min - 40px;
   }
 
   @media(min-width: $md-min) {
-    width: $md-min;
+    width: $md-min - 40px;
   }
 
   @media(min-width: $lg-min) {
-    width: $lg-min;
+    width: $lg-min - 40px;
   }
 
 }
