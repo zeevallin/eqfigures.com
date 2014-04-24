@@ -21,7 +21,7 @@ article.character {
   text-shadow: 0 0 4px rgba(0,0,0,1);
 
   height: 270px;
-  min-width: 25%;
+  min-width: 200px;
   width: 33%;
 
   @media(max-width: $sm-max) {
@@ -34,11 +34,20 @@ article.character {
     height: 190px;
   }
 
+  header {
+    position: absolute;
+    bottom: 0px;
+
+    width: 100%;
+  }
+
   span.rank {
     position: relative;
     display: inline-block;
+    float: left;
     width: 50px;
     height: 50px;
+    margin: 20px;
     line-height: 44px;
     border-radius: 50%;
     border: 3px solid white;
