@@ -24,10 +24,14 @@ window.resizeChoices = ->
 
 
 window.bindRemoteLinks = ->
+  $('.choices .choice a').bind 'ajax:before', (e, xhr, status) ->
+    $('#choices').addClass('loading')
+    $('#choices .choice.skip').text("Wait")
   $('.choices .choice a').bind 'ajax:complete', (e, xhr, status) ->
     $('#choices').replaceWith(xhr.responseText)
     loadRemoteLinks()
     bindRemoteLinks()
+    resizeChoices()
 
 window.loadRemoteLinks = ->
   rails = $.rails

@@ -21,6 +21,13 @@ section.choices {
 
   width: 100%;
 
+  &.loading {
+    pointer-events: none;
+    .choice.a figure, .choice.b figure {
+      @include opacity(.2);
+    }
+  }
+
   .choice.a, .choice.b {
 
     position: absolute;
