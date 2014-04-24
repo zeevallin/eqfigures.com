@@ -16,7 +16,7 @@ class CharactersController < ApplicationController
       a, b = choice.a, choice.b
 
       achar = Elo::Player.new(rating: ratings[a][:r], games_played: ratings[a][:n])
-      bchar = Elo::Player.new(rating: ratings[b][:r], games_played: ratings[a][:n])
+      bchar = Elo::Player.new(rating: ratings[b][:r], games_played: ratings[b][:n])
 
       match = achar.versus(bchar)
 
