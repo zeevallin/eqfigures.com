@@ -50,12 +50,15 @@ h1 {
   font-size: 50px;
 }
 
-header, section.characters, section.introduction {
-  padding: 20px;
+header { padding: 0 }
+header[role="header"] {
+  padding: 19px;
 }
 
+section.characters,
 section.introduction {
-  padding-top: 0px;
+  padding: 0px;
+  margin: 20px 20px 40px 20px;
 }
 
 header[role="header"] a,

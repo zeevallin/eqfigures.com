@@ -115,3 +115,9 @@ $useIEFilters: 0
   -o-box-sizing: $value
   -khtml-box-sizing: $value
   box-sizing: $value
+
+=clearfix
+  &:after
+    content: ""
+    display: table
+    clear: both

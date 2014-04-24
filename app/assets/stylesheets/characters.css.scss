@@ -1,19 +1,19 @@
 section.characters {
-  display: flex;
-  flex-wrap: wrap;
+  @include clearfix;
+  display: block;
   margin-bottom: 20px;
 }
 
 article.character {
 
-  flex-grow: 1;
+  float: left;
 
   background: rgba(0,0,0,.5);
   background-size: cover !important;
   background-position: center !important;
 
   color: white;
-  display: inline-block;
+  display: block;
   position: relative;
 
   margin: 0px;
@@ -21,8 +21,9 @@ article.character {
   text-shadow: 0 0 4px rgba(0,0,0,1);
 
   height: 270px;
-  min-width: 200px;
   width: 33%;
+
+  overflow: none;
 
   @media(max-width: $sm-max) {
     width: 50%;
@@ -36,7 +37,7 @@ article.character {
 
   header {
     position: absolute;
-    bottom: 0px;
+    bottom: 20px;
 
     width: 100%;
   }
@@ -115,7 +116,6 @@ article.character:before {
   left: 0;
   content: ' ';
 }
-
 
 article.character {
 
