@@ -6,7 +6,7 @@
   %span= link_to "About", "#content"
   %span= link_to "Rankings", "#rankings"
   - if policy(Character.new).create?
-    %span= link_to "introduce character", new_character_path, :class => 'button'
+    %span= link_to "introduce character", new_character_path
 
 %nav.session
   - if current_user
@@ -15,4 +15,4 @@
       = "@#{current_user.handle}"
       = link_to "Logout", end_session_path, :class => 'button'
   - else
-    %span= link_to icon_prefix(:bird, "Login with Twitter"), new_session_path, :class => 'button'
+    %span= link_to icon_prefix(:bird, "Login with Twitter"), new_session_path
