@@ -13,6 +13,6 @@
     %span
       = image_tag(current_user.picture)
       = "@#{current_user.handle}"
-      = link_to "Logout", end_session_path, :class => 'button'
+      = link_to "Logout", end_session_path
   - else
     %span= link_to icon_prefix(:bird, "Login with Twitter"), new_session_path

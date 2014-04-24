@@ -17,6 +17,11 @@ $ ->
       )
 
   bindRemoteLinks()
+  resizeChoices()
+
+window.resizeChoices = ->
+  $('section#choices').css('height', $(window).innerHeight())
+
 
 window.bindRemoteLinks = ->
   $('.choices .choice a').bind 'ajax:complete', (e, xhr, status) ->

@@ -4,13 +4,15 @@
     %article.choice{ :class => choice_key, id: choice_key }
       = link_to choices_path( choice.winner_params(choice_key) ), method: :post, remote: true do
         %figure{ style: "background-image: url(#{character.portrait});" }
-          %figcaption= character.name
+          %figcaption
+            %span= character.name
 
     - if idx.zero?
       %article#skip.choice.skip
         = link_to choices_path( choice.winner_params(nil) ), method: :post, remote: true do
           %figure
-            %figcaption= "SKIP"
+            %figcaption
+              %span= "SKIP"
       %a{ href: "#content" }
         %svg#Layer_1{baseprofile: "tiny", space: "preserve", version: "1.2", viewbox: "0 0 400 200", x: "0px", xmlns: "http://www.w3.org/2000/svg", "xmlns:xlink" => "http://www.w3.org/1999/xlink", y: "0px"}
           %g

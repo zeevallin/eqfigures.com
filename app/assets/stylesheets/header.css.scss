@@ -8,12 +8,9 @@ header[role="header"] {
   width: 100%;
   z-index: 200;
 
-  @media(max-width: $xs-max) {
-    position: relative;
-  }
-
   nav.menu {
     float: left;
+
     @media(max-width: $xs-max) {
       float: none;
       display: none;
@@ -22,9 +19,12 @@ header[role="header"] {
 
   nav.session {
     float: right;
+
     @media(max-width: $xs-max) {
+      text-align: left;
       float: none;
       display: block;
+      a { float: right; }
     }
   }
 
