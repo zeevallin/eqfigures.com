@@ -15,4 +15,4 @@
       = "@#{current_user.handle}"
       = link_to "Logout", end_session_path
   - else
-    %span= link_to icon_prefix(:bird, "Login with Twitter"), new_session_path
+    %span= link_to icon_prefix(:bird, "Login with Twitter"), new_session_path, :class => 'stretch'

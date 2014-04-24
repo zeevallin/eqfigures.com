@@ -24,7 +24,8 @@ header[role="header"] {
       text-align: left;
       float: none;
       display: block;
-      a { float: right; }
+      a:not(.stretch) { float: right; }
+      a.stretch span { display: inline-block; }
     }
   }
 
