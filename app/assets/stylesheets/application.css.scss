@@ -12,6 +12,7 @@
 @import url(https://fonts.googleapis.com/css?family=Gorditas|Lato:700,400,300);
 
 a { color: inherit; }
+a:hover { color: $grass; }
 
 // Styles
 ::selection { background: $grass; }
