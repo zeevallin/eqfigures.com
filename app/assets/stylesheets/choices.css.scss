@@ -178,5 +178,31 @@ section.choices {
     opacity: .5;
     &:hover { opacity: .7; }
     path { fill: white; }
+    @media(max-width: $xs-max) { display: none; }
+  }
+}
+
+section.choices > aside {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  z-index: 100;
+  padding: 20px;
+  text-align: right;
+  pointer-events: none;
+  @media(max-width: $xs-max) {
+    text-align: left;
+    padding: 0;
+  }
+}
+.progress {
+  line-height: 30px;
+  font-size: 26px;
+  padding: 8px;
+  background: rgba(0,0,0,.3);
+
+  @media(max-width: $xs-max) {
+    display: block;
   }
 }
