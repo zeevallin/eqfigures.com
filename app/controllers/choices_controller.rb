@@ -1,7 +1,11 @@
 class ChoicesController < ApplicationController
 
   def create
-    @choice = Choice.new params.require(:character).permit(:a, :b, :x)
+
+    p = params.require(:character).permit(:a, :b, :x)
+    p[:a], p[:b] = *[p[:a], p[:b]].sort
+
+    @choice = Choice.new(p)
     @choice.user = current_user
 
     authorize @choice, :create?
