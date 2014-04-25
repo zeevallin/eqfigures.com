@@ -29,8 +29,7 @@
       gathering data from autists all over the world.
 
   - if current_user
-    - unless @choice
-      %aside.call-to-action= link_to icon_prefix(:bird, "Even the scores, tell your friends!"), "https://twitter.com/intent/tweet?text=Fair%20and%20accurate%20http%3A%2F%2Feqfigures.com%2F%20will%20once%20and%20for%20all%20determine%20who's%20best%20pony!"
+    %aside.call-to-action= link_to icon_prefix(:bird, "Even the scores, tell your friends!"), "https://twitter.com/intent/tweet?text=Fair%20and%20accurate%20http%3A%2F%2Feqfigures.com%2F%20will%20once%20and%20for%20all%20determine%20who's%20best%20pony!"
   - else
     %aside.call-to-action= link_to icon_prefix(:bird, "Login with Twitter to participate"), new_session_path
 
