@@ -1,6 +1,7 @@
 class Choice < ActiveRecord::Base
 
   belongs_to :user
+  validates_uniqueness_of :user_id, scope: [:a, :b]
 
   def characters
     @characters ||= Character.find(a, b)
