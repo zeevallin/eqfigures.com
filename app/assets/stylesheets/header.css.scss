@@ -26,6 +26,7 @@ header[role="header"] {
       display: block;
       a:not(.stretch) { float: right; }
       a.stretch span { display: inline-block; }
+      & > span { margin-bottom: 10px; }
     }
   }
 

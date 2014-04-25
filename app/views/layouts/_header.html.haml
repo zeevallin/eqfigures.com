@@ -14,5 +14,7 @@
       = image_tag(current_user.picture)
       = "@#{current_user.handle}"
       = link_to "Logout", end_session_path
+    - if current_user && !@choice
+      %span= link_to "Reset & start again", choices_path, method: :delete, :class => 'stretch', data: { confirm: "Do you really want to reset all of your choices and start from the beginning?" }
   - else
     %span= link_to icon_prefix(:bird, "Login with Twitter"), new_session_path, :class => 'stretch'
