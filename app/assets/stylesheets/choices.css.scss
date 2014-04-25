@@ -156,6 +156,8 @@ section.choices {
     a { text-decoration: none; }
 
     &:hover {
+      color: white!important;
+
       -webkit-transform: scale(1.2) rotate(10deg);
       transform: scale(1.2) rotate(10deg);
     }
