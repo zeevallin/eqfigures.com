@@ -29,6 +29,9 @@ window.bindRemoteLinks = ->
     $('#choices .choice.skip figcaption span').text("WAIT")
 
   $('.choices .choice a').bind 'ajax:complete', (e, xhr, status) ->
+
+    window.location.reload() if (xhr.responseText.length == 1)
+
     $('#choices').replaceWith(xhr.responseText)
     loadRemoteLinks()
     bindRemoteLinks()
