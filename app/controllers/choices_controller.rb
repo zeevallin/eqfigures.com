@@ -14,7 +14,7 @@ class ChoicesController < ApplicationController
       format.js do
 
         if available_choices.any?
-          @choice = Choice.suggest *available_choices.sample, current_user
+          @choice = Choice.suggest *available_choices.sample.shuffle, current_user
           render partial: 'characters/choice', locals: { choice: @choice }
         else
           render nothing: true
